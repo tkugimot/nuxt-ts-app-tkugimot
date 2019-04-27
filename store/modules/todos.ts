@@ -18,11 +18,13 @@ export const getters: GetterTree<State, RootState> = {
 }
 
 export const types = {
-  ADDTODO: 'ADDTODO'
+  ADDTODO: 'ADDTODO',
+  REMOVETODO: 'REMOVETODO',
 }
 
 export interface Actions<S, R> extends ActionTree<S, R> {
   addTodo (context: ActionContext<S, R>, document): void
+  removeTodo (context: ActionContext<S, R>, id: number): void
 }
 
 export const actions: Actions<State, RootState> = {
@@ -31,6 +33,10 @@ export const actions: Actions<State, RootState> = {
     console.log(target.value);
     commit(types.ADDTODO, target.value)
     target.value = '';
+  },
+
+  removeTodo ({ commit }, id: number) {
+    commit(types.REMOVETODO, id)
   }
 }
 
@@ -41,5 +47,11 @@ export const mutations: MutationTree<State> = {
       id = state.todos[state.todos.length - 1].id + 1;
     }
     state.todos.push(new TodoClass(id, content, false));
+  },
+
+  [types.REMOVETODO] (state, id: number) {
+    // 各Todoはidを持っており、そのidを持つTodoのindexを取得する。
+    const todoIndex = state.todos.findIndex(todo => todo.id == id);
+    state.todos.splice(todoIndex, 1);
   }
 }
