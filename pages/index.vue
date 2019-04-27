@@ -4,12 +4,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import Todos from '~/components/Todos.vue';
+import TodoList from '~/components/TodoList.vue';
+import * as todos from '~/store/modules/todos';
 
 @Component({
   components: {
-    Todos
+    TodoList
   }
 })
-export default class Home extends Vue {}
+export default class Home extends Vue {
+
+}
 </script>
