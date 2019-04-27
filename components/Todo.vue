@@ -1,6 +1,13 @@
 <template>
   <div>
-      <p>{{ todo.content }}</p>
+      <div v-show="!todo.isEditing">
+          <p>Text : {{ todo.content }}</p>
+          <button @click="editTodo(todo.id)">Edit</button>
+      </div>
+      <div v-show="todo.isEditing">
+          <input :id="todo.id" type="text" @keyup.enter="updateTodo" :value="todo.content"/>
+      </div>
+
       <button @click="removeTodo(todo.id)">DONE</button>
   </div>
 </template>
@@ -17,5 +24,7 @@ export default class Todo extends Vue {
   @Prop() todo
 
   @Todos.Action removeTodo
+  @Todos.Action editTodo
+  @Todos.Action updateTodo
 }
 </script>

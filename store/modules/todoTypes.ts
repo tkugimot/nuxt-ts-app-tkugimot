@@ -1,6 +1,7 @@
 export interface Todo {
     id: number
     content: string
+    isEditing: boolean
 }
 
 export class TodoClass implements Todo {
