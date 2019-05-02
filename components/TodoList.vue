@@ -1,11 +1,9 @@
 <template>
-  <div>
-      <ul v-for="todo in allTodos" :key='todo.id'>
-          <li>
-              <Todo :todo="todo" />
-          </li>
-      </ul>
-  </div>
+    <div class="colmuns">
+        <div class="column is-inline-block-desktop is-one-quarter" v-for="todo in allTodos" :key='todo.id'>
+            <Todo :todo="todo" />
+        </div>
+    </div>
 </template>
 
 <script lang="ts">

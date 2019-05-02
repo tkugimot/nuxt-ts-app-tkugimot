@@ -1,7 +1,10 @@
 <template>
-    <div>
-        <h2>Todo Input</h2>
-        <input type="text" @keyup.enter="addTodo"/>
+    <div class="container">
+        <div class="field is-three-fifths">
+          <div class="control">
+            <input class="input new-todo-input is-rounded" type="text" @keyup.enter="addTodo" placeholder="Write new TODO..." />
+          </div>
+        </div>
     </div>
 </template>
 
@@ -16,3 +19,14 @@ export default class NewTodo extends Vue {
   @Todos.Action addTodo
 }
 </script>
+
+<style lang="scss">
+  .field {
+    margin-top: 20px;
+  }
+  .new-todo-input {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+  }
+</style>
