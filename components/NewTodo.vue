@@ -2,7 +2,7 @@
     <div class="container">
         <div class="field is-three-fifths">
           <div class="control">
-            <input class="input is-rounded" type="text" @keyup.enter="addTodo" placeholder="Write new TODO..." />
+            <input class="input new-todo-input is-rounded" type="text" @keyup.enter="addTodo" placeholder="Write new TODO..." />
           </div>
         </div>
     </div>
@@ -24,7 +24,7 @@ export default class NewTodo extends Vue {
   .field {
     margin-top: 20px;
   }
-  .input {
+  .new-todo-input {
     display: block;
     width: 80%;
     margin: 0 auto;
