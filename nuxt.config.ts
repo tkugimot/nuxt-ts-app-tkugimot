@@ -17,6 +17,14 @@ const config: NuxtConfiguration = {
     '@nuxtjs/bulma',
     'nuxt-fontawesome'
   ],
+  env: {
+    apiKey: process.env.apiKey || "apiKey",
+    authDomain: process.env.authDomain || "authDomain",
+    databaseURL: process.env.databaseURL || "databaseUrl",
+    projectId: process.env.projectId || "projectId",
+    storageBucket: process.env.storageBucket || "storageBucket",
+    messagingSenderId: process.env.messagingSenderId || "messagingSenderId"
+  },
   fontawesome: {
     imports: [
       {

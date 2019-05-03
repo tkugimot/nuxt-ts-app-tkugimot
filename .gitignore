@@ -85,3 +85,6 @@ sw.*
 
 # firebase
 .firebaserc
+
+# .envrc
+.envrc
