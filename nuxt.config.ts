@@ -1,6 +1,8 @@
 import NuxtConfiguration from '@nuxt/config'
 
 const config: NuxtConfiguration = {
+  mode: 'spa',
+  loading: '~/components/loading.vue',
   head: {
     title: 'nuxt-ts-app-tkugimot',
     meta: [
@@ -10,12 +12,17 @@ const config: NuxtConfiguration = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  loading: { color: '#3B8070' },
   css: [
   ],
   modules: [
     '@nuxtjs/bulma',
     'nuxt-fontawesome'
+  ],
+  // router: {
+    // middleware: 'auth'
+  // },
+  plugins: [
+    { src: "~/plugins/auth.ts" }
   ],
   env: {
     apiKey: process.env.apiKey || "apiKey",

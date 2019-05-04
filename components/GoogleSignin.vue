@@ -4,13 +4,15 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-
 import firebase, { googleProvider } from "~/plugins/firebase"
+import { namespace } from 'vuex-class';
+import * as users from '~/store/modules/users';
 
+const Users = namespace(users.name);
 @Component
 export default class GoogleSignin extends Vue {
   public signInWithGoogleRedirect () {
-    firebase.auth().signInWithRedirect(googleProvider)
+    firebase.auth().signInWithRedirect(googleProvider);
   }
 }
 </script>
